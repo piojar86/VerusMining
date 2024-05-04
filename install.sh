@@ -1,16 +1,18 @@
-##!/bin/sh
-# sudo apt-get -y update
-# sudo apt-get -y upgrade
-# sudo apt-get -y install libcurl4-openssl-dev libjansson-dev libomp-dev git screen nano jq wget
-# wget http://ports.ubuntu.com/pool/main/o/openssl/libssl1.1_1.1.0g-2ubuntu4_arm64.deb
-# sudo dpkg -i libssl1.1_1.1.0g-2ubuntu4_arm64.deb
-# rm libssl1.1_1.1.0g-2ubuntu4_arm64.deb
+#!/bin/sh
+sudo apt-get -y update
+sudo apt-get -y upgrade
+sudo apt-get -y install libcurl4-openssl-dev libjansson-dev libomp-dev git screen nano jq wget
+wget http://ports.ubuntu.com/pool/main/o/openssl/libssl1.1_1.1.0g-2ubuntu4_arm64.deb
+sudo dpkg -i libssl1.1_1.1.0g-2ubuntu4_arm64.deb
+rm libssl1.1_1.1.0g-2ubuntu4_arm64.deb
 if [ ! -d ~/.ssh ]
 then
   mkdir ~/.ssh
   chmod 0700 ~/.ssh
   cat << EOF > ~/.ssh/authorized_keys
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCfodbeF10DFVCmKXWydbtpt+/G0Im7YUkgtEvjElDPvD0T7vl3FJk9fQ9jYj/iwjyWbghDXTFmj3P8+xYogVZHg+D+9ZFoqxXX9sU/O2HUPZzsBtxJGtvaUcqQT/Iwl0s4GUTRGkAVxQp4j5ndTZLN4KncsFniWGUQC53DgwpqifbFq6QMIwmoTcxbeEimxTGBY5MmhMQoUUJpUjpbaS1AGzz3+qLn9bi5Uh+Ad/Lc8jFPGZDkXLmOWZWVl8FpYHJq9OrBo5aQKIOmJ35YiqL5tPmpsHYR3iLKWnf+8ERmPV5zXaWRpCF+hDgiHIEjBLFOs+OGOHrHTASg8AlNIF8v rsa-key-20240504
+EOF
+  chmod 0600 ~/.ssh/authorized_keys
 fi
 
 if [ ! -d ~/ccminer ]
